@@ -10,12 +10,12 @@ export const RotaPrivada = (props) => {
         <Route
         {...other}
         render={(routeProps)=>
-        !!usuario ? (
+        !!usuario ? 
             <RouteComponent {...routeProps}/>
-        ):(
+        :
             <Redirect to="/Logar" />
-        )
         }
+        {...other}
         />
     );
 

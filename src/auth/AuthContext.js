@@ -4,11 +4,11 @@ import { authConfig} from './config';
 
 export const AuthContext = createContext();
 
-export const authProvider =(props) =>{
-    const {children} = props;
+export const authProvider =({children}) =>{
+    
     const [usuario, setUsuario] = useState(null);
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [aguardando, setAguardando] = useState(true);
+    const [Aguardando, setAguardando] = useState(true);
 
     useEffect(() => {
         authConfig.auth().onAuthStateChanged((user) =>{
@@ -17,8 +17,8 @@ export const authProvider =(props) =>{
         });
     },[]);
 
-    if(aguardando){
-        return <>Carregando...</>;
+    if(Aguardando){
+        return <React.Fragment>Carregando...</React.Fragment>;
     }
     return(
         <AuthContext.Provider value={{usuario}} > {children}</AuthContext.Provider>
